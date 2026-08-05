@@ -1,0 +1,61 @@
+# Xiaomi Termux Tool (unlock-tool)
+
+A fast, lightweight, and user-friendly Termux toolkit designed to manage Xiaomi devices directly from your Android terminal.
+
+---
+
+> ### 📦 Requirements & Important Commands
+> 
+> **Prerequisites & Setup:**
+> 
+> * Supported OS: Android (via Termux app)
+> * 
+> * OTG Cable for connecting phone in Fastboot mode.
+> * 
+> * Official **Termux** & **Termux:API** apps installed.
+> 
+> **1. Storage Setup Command:**
+> 
+> Run this command first to allow storage permission:
+> 
+> ```bash
+> termux-setup-storage
+> ```
+> 
+> **2. Python Install Command:**
+> 
+> Run this command to install Python:
+> 
+> ```bash
+> pkg install python -y
+> ```
+> 
+> **3. Node.js Install Command:**
+> 
+> Run this command to install Node.js:
+> 
+> ```bash
+> pkg install nodejs -y
+> ```
+> 
+> **4. Installation Command:**
+> 
+> Run the following command in your Termux terminal to install the tool instantly:
+> 
+> ```bash
+> curl -s -O [https://raw.githubusercontent.com/fgg56865/unlock-tool/main/install.sh](https://raw.githubusercontent.com/fgg56865/unlock-tool/main/install.sh) && bash install.sh
+> ```
+> 
+> **5. Run Tool Command:**
+> 
+> To run the tool anytime later:
+> 
+> ```bash
+> python tool.py
+> ```
+
+---
+
+### ⚠️ Disclaimer
+* **Data Loss Warning:** Unlocking the bootloader or flashing official Fastboot ROMs will completely erase all data stored on your device (Photos, Apps, Files, Settings, etc.). Please make a proper backup before proceeding.
+* **Warranty Void:** Unlocking the bootloader may void your device warranty. Use this tool at your own risk. The developer will not be responsible for any bricked devices or data loss.
