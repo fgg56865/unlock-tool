@@ -12,7 +12,11 @@ A fast, lightweight, and user-friendly Termux toolkit designed to manage Xiaomi 
 > * 
 > * OTG Cable for connecting phone in Fastboot mode.
 > * 
-> * Official **Termux** & **Termux:API** apps installed.
+> * Official Apps Download:
+> * 
+>   * Download [Termux](https://termux.dev/)
+>   * 
+>   * Download [Termux:API](https://termux.dev/en/add-ons.html)
 > 
 > **1. Storage Setup Command:**
 > 
@@ -21,10 +25,11 @@ A fast, lightweight, and user-friendly Termux toolkit designed to manage Xiaomi 
 > ```bash
 > termux-setup-storage
 > ```
-> 
+>
 > **2. Python Install Command:**
 > 
 > Run this command to install Python:
+> 
 > ```bash
 > pkg install python -y
 > ```
@@ -69,5 +74,5 @@ A fast, lightweight, and user-friendly Termux toolkit designed to manage Xiaomi 
 stored on your device (Photos, Apps, Files, Settings, etc.). Please make a proper backup before proceeding.
 
 * **Warranty Void:** Unlocking the bootloader may void your device warranty. Use this tool at your own risk. The
-*
+* 
 * developer will not be responsible for any bricked devices or data loss.
