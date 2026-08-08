@@ -55,8 +55,7 @@ A fast, lightweight, and user-friendly Termux toolkit designed to manage Xiaomi 
 > Run the following command in your Termux terminal to install the tool instantly:
 > 
 > ```bash
-> curl -s -O [https://raw.githubusercontent.com/fgg56865/unlock-tool/main/install.sh](https://raw.githubusercontent.com/fgg56865/unlock-tool/main/install.sh) && bash install.sh
-> ```
+> ```curl -s -O https://raw.githubusercontent.com/fgg56865/unlock-tool/main/install.sh && bash install.sh
 > 
 > **6. Run Tool Command:**
 > 
