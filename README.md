@@ -63,9 +63,7 @@ A fast, lightweight, and user-friendly Termux toolkit designed to manage Xiaomi 
 > 
 > To run the tool anytime later:
 > 
-> 
-> ```bash
-> ```python tool.py
+>python tool.py
 
 ---
 
