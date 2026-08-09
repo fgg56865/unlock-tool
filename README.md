@@ -24,8 +24,8 @@ A fast, lightweight, and user-friendly Termux toolkit designed to manage Xiaomi 
 > 
 > ```bash
 > termux-setup-storage
-> ``` 
-> ```
+>
+>
 > 
 > **5. Installation Command:**
 > 
