@@ -24,30 +24,7 @@ A fast, lightweight, and user-friendly Termux toolkit designed to manage Xiaomi 
 > 
 > ```bash
 > termux-setup-storage
-> ```
->
-> **2. Python Install Command:**
-> 
-> Run this command to install Python:
-> 
-> ```bash
-> pkg install python -y
-> ```
-> 
-> **3. Node.js Install Command:**
-> 
-> Run this command to install Node.js:
-> 
-> ```bash
-> pkg install nodejs -y
-> ```
-> 
-> **4. Android Tools Install Command:**
-> 
-> Run this command to install Android Tools (Fastboot/ADB):
-> 
-> ```bash
-> pkg install android-tools -y
+> ``` 
 > ```
 > 
 > **5. Installation Command:**
