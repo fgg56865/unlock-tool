@@ -52,7 +52,7 @@ def smart_unlock_device():
             print(f"{GREEN}[+] 'oem unlock' command accepted! Check phone screen and confirm.{RESET}")
             return True
 
-        print(f"{RED}[-] Both methods failed. Device may need PC + Mi Unlock Tool.{RESET}")
+        print(f"{RED}[-] Both methods failed. Device may require official Mi Unlock Tool on PC.{RESET}")
         print(f"{YELLOW}Server Response: {res_oem.stderr.strip() or res_oem.stdout.strip()}{RESET}")
         return False
     except Exception as e:
@@ -67,20 +67,22 @@ def run_unlock(is_hyperos=False):
 
     if is_hyperos:
         print(f"{RED}[!] WARNING: HyperOS requires 168h wait + PC + Mi Unlock Tool!{RESET}")
-        print(f"{RED}[!] Fastboot command alone will FAIL on HyperOS 1.0+{RESET}\n")
-        cont = input(f"{CYAN}Still want to try fastboot command? y/n: {RESET}").strip().lower()
-        if cont!= 'y': return
+        print(f"{RED}[!] Fastboot command alone might not bypass security on HyperOS 1.0+{RESET}\n")
+        cont = input(f"{CYAN}Still want to try fastboot command? (y/n): {RESET}").strip().lower()
+        if cont != 'y': 
+            return
     else:
         print(f"{RED}[!] WARNING: All data will be wiped completely!{RESET}")
 
     action = input(f"\n{CYAN}Press Enter to start or 'q' to cancel: {RESET}").strip()
-    if action.lower() == 'q': return
+    if action.lower() == 'q': 
+        return
 
     print(f"\n{YELLOW}[*] Checking fastboot device...{RESET}")
     try:
         res = subprocess.run(['fastboot', 'devices'], capture_output=True, text=True, timeout=10)
         if not res.stdout.strip():
-            print(f"{RED}[-] No fastboot device found! Use OTG cable properly.{RESET}")
+            print(f"{RED}[-] No fastboot device found! Check your OTG cable connection.{RESET}")
             input(f"\n{CYAN}Press Enter to return...{RESET}")
             return
         print(f"{GREEN}[+] Device found:\n{res.stdout.strip()}{RESET}")
@@ -111,12 +113,12 @@ def handle_unlock(name, is_hyperos=False):
                 try:
                     subprocess.run(['am', 'start', '-a', 'android.intent.action.VIEW', '-d', 'https://account.xiaomi.com'])
                 except Exception:
-                    print(f"{RED}[-] Open https://account.xiaomi.com manually.{RESET}")
+                    print(f"{RED}[-] Please open https://account.xiaomi.com manually in your browser.{RESET}")
 
             print(f"\n{CYAN}Instructions:{RESET}")
             print("1. Login & Bind account in browser")
-            print("2. Wait 168h if first time binding")
-            print("3. Come back and press 'done'")
+            print("2. Wait required hours if first time binding")
+            print("3. Come back and type 'done'")
 
             while True:
                 ans = input(f"\n{CYAN}Type {GREEN}'done'{CYAN} when finished (or {RED}'back'{CYAN}): {RESET}").strip().lower()
@@ -146,11 +148,11 @@ def handle_rom():
                 print(f"{GREEN}{res.stdout.strip() if res.stdout.strip() else 'No device found.'}{RESET}")
             except Exception as e:
                 print(f"{RED}[-] Error: {e}{RESET}")
-            input(f"\n{CYAN}Press Enter...{RESET}")
+            input(f"\n{CYAN}Press Enter to return...{RESET}")
 
         elif choice == '2':
             clear_screen()
-            print(f"{YELLOW}[i] ROM folder টা /sdcard এ রাখো অথবা full path দাও{RESET}")
+            print(f"{YELLOW}[i] ROM folder-টি /sdcard এ রাখুন অথবা সঠিক পাথ (path) দিন{RESET}")
             path = input(f"{CYAN}Enter extracted ROM folder path: {RESET}").strip()
             if os.path.isdir(path):
                 flash_script = os.path.join(path, 'flash_all.sh')
@@ -176,7 +178,7 @@ def handle_rom():
                     except Exception as ex:
                         print(f"{RED}[-] Error parsing bat: {ex}{RESET}")
                 else:
-                    print(f"{YELLOW}[*] No script found. Flashing.img files...{RESET}")
+                    print(f"{YELLOW}[*] No script found. Flashing .img files directly...{RESET}")
                     try:
                         imgs = [f for f in os.listdir(path) if f.endswith('.img')]
                         for img in imgs:
@@ -190,7 +192,7 @@ def handle_rom():
                 print(f"{YELLOW}[*] Run 'fastboot reboot' to restart{RESET}")
             else:
                 print(f"{RED}[-] Invalid directory path!{RESET}")
-            input(f"\n{CYAN}Press Enter...{RESET}")
+            input(f"\n{CYAN}Press Enter to return...{RESET}")
 
         elif choice == '3':
             break
@@ -210,10 +212,10 @@ def handle_mi_assistant():
 
         if choice == '1':
             clear_screen()
-            print(f"{YELLOW}[*] First reboot to recovery...{RESET}")
+            print(f"{YELLOW}[*] Reboots to recovery first...{RESET}")
             subprocess.run(['adb', 'reboot', 'recovery'])
-            print(f"{CYAN}Recovery তে গিয়ে 'Apply update from ADB' select করো{RESET}")
-            input("তারপর Enter চাপো...")
+            print(f"{CYAN}Recovery-তে গিয়ে 'Apply update from ADB' সিলেক্ট করুন{RESET}")
+            input("করার পর Enter চাপুন...")
             zpath = input(f"{CYAN}Enter Recovery Zip file path: {RESET}").strip()
             if os.path.exists(zpath) and zpath.endswith('.zip'):
                 print(f"{YELLOW}[*] Starting ADB Sideload...{RESET}")
@@ -224,17 +226,17 @@ def handle_mi_assistant():
                     print(f"{RED}[-] Sideload failed: {res.stderr}{RESET}")
             else:
                 print(f"{RED}[-] Invalid zip file path!{RESET}")
-            input(f"\n{CYAN}Press Enter...{RESET}")
+            input(f"\n{CYAN}Press Enter to return...{RESET}")
 
         elif choice == '2':
             print(f"{YELLOW}[*] Rebooting to system...{RESET}")
             subprocess.run(['adb', 'reboot'])
-            input(f"{CYAN}Press Enter...{RESET}")
+            input(f"{CYAN}Press Enter to return...{RESET}")
 
         elif choice == '3':
             print(f"{YELLOW}[*] Rebooting to Fastboot...{RESET}")
             subprocess.run(['adb', 'reboot', 'bootloader'])
-            input(f"{CYAN}Press Enter...{RESET}")
+            input(f"{CYAN}Press Enter to return...{RESET}")
 
         elif choice == '4':
             print(f"{RED}[!] WARNING: This will wipe all data!{RESET}")
@@ -246,7 +248,7 @@ def handle_mi_assistant():
                     print(f"{GREEN}[+] Wipe successful!{RESET}")
                 else:
                     print(f"{RED}[-] Wipe failed: {res.stderr}{RESET}")
-            input(f"{CYAN}Press Enter...{RESET}")
+            input(f"{CYAN}Press Enter to return...{RESET}")
 
         elif choice == '5':
             clear_screen()
@@ -255,7 +257,7 @@ def handle_mi_assistant():
                 print(f"{GREEN}{res.stdout.strip() if res.stdout.strip() else 'No ADB device found.'}{RESET}")
             except Exception as e:
                 print(f"{RED}[-] Error: {e}{RESET}")
-            input(f"\n{CYAN}Press Enter...{RESET}")
+            input(f"\n{CYAN}Press Enter to return...{RESET}")
 
         elif choice == '6':
             break
