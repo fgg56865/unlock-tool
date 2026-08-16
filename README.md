@@ -27,13 +27,22 @@ A fast, lightweight, and user-friendly Termux toolkit designed to manage Xiaomi 
 >
 >
 > 
-> 
->
->```
 > curl -s -O https://raw.githubusercontent.com/fgg56865/unlock-tool/main/install.sh && bash install.sh
 >```
 >curl -s -O https://raw.githubusercontent.com/fgg56865/unlock-tool/main/install.sh && bash install.sh
 
+
+
+ next
+ 
+ ls
+ 
+ next
+ pkg update
+pkg install which
+
+next
+bash install.sh
 
 > 
 > **6. Run Tool Command:**
