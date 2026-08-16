@@ -34,17 +34,18 @@ A fast, lightweight, and user-friendly Termux toolkit designed to manage Xiaomi 
 
 
  next
- 
+ ```
  ls
- 
+ ```
  next
+ ```
  pkg update
 pkg install which
-
+```
 next
+```
 bash install.sh
-
-> 
+```
 > **6. Run Tool Command:**
 > 
 > To run the tool anytime later:
