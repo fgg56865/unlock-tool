@@ -39,5 +39,6 @@ curl -s -O [https://raw.githubusercontent.com/fgg56865/unlock-tool/main/install.
 # 
 # 4. RUN TOOL COMMAND
 # ```
-python tool.py
+
 ```
+python tool.py
