@@ -4,61 +4,40 @@ A fast, lightweight, and user-friendly Termux toolkit designed to manage Xiaomi 
 
 ---
 
-> ### 📦 Requirements & Important Commands
-> 
-> **Prerequisites & Setup:**
-> 
-> * Supported OS: Android (via Termux app)
-> * 
-> * OTG Cable for connecting phone in Fastboot mode.
-> * 
-> * Official Apps Download:
-> * 
->   * Download [Termux](https://termux.dev/)
->   * 
->   * Download [Termux:API](https://termux.dev/en/add-ons.html)
-> 
-> **1. Storage Setup Command:**
-> 
-> Run this command first to allow storage permission:
-> 
-> ```bash
-> termux-setup-storage
->
->
-> 
-> curl -s -O https://raw.githubusercontent.com/fgg56865/unlock-tool/main/install.sh && bash install.sh
->```
->curl -s -O https://raw.githubusercontent.com/fgg56865/unlock-tool/main/install.sh && bash install.sh
+## 📦 Requirements & Important Commands
 
-
-
- next
- ```
- ls
- ```
- next
- ```
- pkg update
-pkg install which
-```
-next
-```
-bash install.sh
-```
-> **6. Run Tool Command:**
-> 
-> To run the tool anytime later:
-> ```
->python tool.py
+### Prerequisites & Setup:
+* Supported OS: Android (via Termux app)
+* OTG Cable for connecting phone in Fastboot mode.
+* Official Apps Download:
+  * Download [Termux](https://f-droid.org/en/packages/com.termux/)
+  * Download [Termux:API](https://f-droid.org/en/packages/com.termux.api/)
 
 ---
 
-### ⚠️ Disclaimer
-* **Data Loss Warning:** Unlocking the bootloader or flashing official Fastboot ROMs will completely erase all data
-*
-stored on your device (Photos, Apps, Files, Settings, etc.). Please make a proper backup before proceeding.
+### All-in-One Execution & Setup Commands:
 
-* **Warranty Void:** Unlocking the bootloader may void your device warranty. Use this tool at your own risk. The
-* 
-* developer will not be responsible for any bricked devices or data loss.
+```bash
+# ==========================================
+# 1. STORAGE SETUP COMMAND
+# ==========================================
+
+termux-setup-storage
+
+# 
+# 2. UPDATE & DEPENDENCIES INSTALLATION
+
+# ```
+pkg update && pkg upgrade -y
+pkg install which python git android-tools -y
+```
+# 
+# 3. DOWNLOAD & EXECUTE INSTALL SCRIPT
+```
+curl -s -O [https://raw.githubusercontent.com/fgg56865/unlock-tool/main/install.sh](https://raw.githubusercontent.com/fgg56865/unlock-tool/main/install.sh) && bash install.sh
+```
+# 
+# 4. RUN TOOL COMMAND
+# ```
+python tool.py
+```
