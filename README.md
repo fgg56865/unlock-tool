@@ -34,7 +34,7 @@ pkg install which python git android-tools -y
 # 
 # 3. DOWNLOAD & EXECUTE INSTALL SCRIPT
 ```
-curl -s -O [https://raw.githubusercontent.com/fgg56865/unlock-tool/main/install.sh](https://raw.githubusercontent.com/fgg56865/unlock-tool/main/install.sh) && bash install.sh
+curl -s -O https://raw.githubusercontent.com/fgg56865/unlock-tool/main/install.sh && bash install.sh
 ```
 # 
 # 4. RUN TOOL COMMAND
