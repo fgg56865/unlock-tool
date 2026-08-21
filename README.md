@@ -18,21 +18,16 @@ A fast, lightweight, and user-friendly Termux toolkit designed to manage Xiaomi 
 ### All-in-One Execution & Setup Commands:
 
 ```bash
-# ==========================================
-# 1. STORAGE SETUP COMMAND
-# ==========================================
-
 termux-setup-storage
 
 # 
-# 2. UPDATE & DEPENDENCIES INSTALLATION
 
 # ```
 pkg update && pkg upgrade -y
 pkg install which python git android-tools -y
 ```
 # 
-# 3. DOWNLOAD & EXECUTE INSTALL SCRIPT
+
 ```
 curl -s -O https://raw.githubusercontent.com/fgg56865/unlock-tool/main/install.sh && bash install.sh
 ```
